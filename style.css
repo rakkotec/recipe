@@ -117,7 +117,7 @@ strong {
 
 .list > img {
     display: inline-block;
-    width: 50%;
+    width: calc(50% - var(--left-space));
     margin-bottom: 1rem;
     box-shadow: 0 0 0 4px #000;
 }
