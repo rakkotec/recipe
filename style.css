@@ -83,6 +83,13 @@ p {
     font-size: 1rem;
 }
 
+pre {
+    max-height: 100%;
+    padding: 0.8em;
+    border: 1px solid black;
+	white-space: pre-wrap;
+}
+
 strong {
     background: linear-gradient(transparent 40%, #ffee0080 40%);
     font-size: 1em;
