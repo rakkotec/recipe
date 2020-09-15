@@ -114,12 +114,16 @@ strong {
     counter-reset: list-counter;
 }
 
-.list > p {
+.list > p:not(.tips) {
     counter-increment: list-counter;
 }
 
-.list > p::before {
+.list > p:not(.tips)::before {
     content: counter(list-counter) ". ";
+}
+
+.list > p.tips::before {
+    content: "※ ";
 }
 
 .list > img {
