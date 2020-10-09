@@ -68,6 +68,7 @@ body > :last-child {
 }
 .header:not(:focus-within) ~ .header-menu {
     transform: scaleY(0);
+    transition: transform 0.2s ease-out 0.1s;
 }
 
 .header-menu > a {
