@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    outline: 0;
 }
 
 :root {
@@ -8,14 +9,14 @@
 }
 
 body {
-    --left-space: 1.4rem;
+    --body-padding: 1.4rem;
     --header-height: 3.6rem;
     position: absolute;
     width: 100%;
     height: 100%;
     margin: 0;
-    padding: var(--left-space);
-    padding-top: calc(var(--header-height) + var(--left-space));
+    padding: var(--body-padding);
+    padding-top: calc(var(--header-height) + var(--body-padding));
     overflow-y: scroll;
 }
 
@@ -24,6 +25,7 @@ body > :last-child {
 }
 
 .header {
+    --header-font-color: #f5f5f5;
     position: fixed;
     display: flex;
     z-index: 1;
@@ -34,11 +36,43 @@ body > :last-child {
     background-color: black;
     justify-content: space-between;
     font-size: 1.2rem;
-    color: #f5f5f5;
+    color: var(--header-font-color);
 }
 
 .header > span {
     padding: 0 1.2rem;
+}
+
+.header-menu-button:focus {
+    color: transparent;
+    pointer-events: none;
+}
+.header-menu-button:focus::after {
+    content: '×';
+    color: var(--header-font-color);
+}
+
+.header-menu {
+    position: fixed;
+    z-index: 1;
+    width: 100%;
+    height: calc(100% - var(--header-height));
+    top: var(--header-height);
+    left: 0;
+    padding: 1rem 2rem;
+    line-height: 3rem;
+    background-color: #eee;
+    font-size: 1.2rem;
+    transform-origin: top;
+    transition: transform 0.2s ease-out 0s;
+}
+.header:not(:focus-within) ~ .header-menu {
+    transform: scaleY(0);
+}
+
+.header-menu > a {
+    display: block;
+    color: black;
 }
 
 h1 {
@@ -51,10 +85,11 @@ h1 {
 h2 {
     max-height: 100%;
     margin-top: 4rem;
-    margin-bottom: -4rem;
+    margin-bottom: 2rem;
+    padding-right: var(--body-padding);
     line-height: 2em;
     background-color: #aaa;
-    box-shadow: calc(-1 * var(--left-space)) 0 0 0 #aaa;
+    box-shadow: calc(-1 * var(--body-padding)) 0 0 0 #aaa;
     font-size: 1.3rem;
 }
 
@@ -62,10 +97,15 @@ h3 {
     max-height: 100%;
     margin-top: 4rem;
     margin-bottom: 2rem;
+    padding-right: var(--body-padding);
     line-height: 2em;
     background-color: #ddd;
-    box-shadow: calc(-1 * var(--left-space)) 0 0 0 #ddd;
+    box-shadow: calc(-1 * var(--body-padding)) 0 0 0 #ddd;
     font-size: 1.2rem;
+}
+
+h2 + h3 {
+    margin-top: -2rem;
 }
 
 h4 {
@@ -107,6 +147,7 @@ strong {
     position: absolute;
     display: inline-block;
     margin-left: 1.4rem;
+    margin-right: var(--body-padding);
 }
 
 .list {
@@ -128,7 +169,7 @@ strong {
 
 .list > img {
     display: inline-block;
-    width: calc(50% - var(--left-space));
+    width: calc(50% - var(--body-padding));
     margin-bottom: 1rem;
     box-shadow: 0 0 0 4px #000;
 }
