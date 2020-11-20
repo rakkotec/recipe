@@ -170,7 +170,8 @@ strong {
 
 .list > img {
     display: inline-block;
-    width: calc(50% - var(--body-padding));
+    width: calc(50% - 1rem);
+    max-width: 30rem;
     margin-bottom: 1rem;
     box-shadow: 0 0 0 4px #000;
 }
