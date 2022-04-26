@@ -269,6 +269,12 @@ th {
     border-radius:30px;
 }
 
+.sample-img {
+    display: inline-block;
+    width: 30%;
+    border-radius:30px;
+}
+
 .emphasis
 {
     font-size:80%;
